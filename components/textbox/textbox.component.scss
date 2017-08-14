@@ -1,0 +1,8 @@
+@import "../../globalscss/global";
+.blockLabel{
+  display: block;
+}
+
+input[disabled]{
+  background-color: transparent;
+}

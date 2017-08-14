@@ -1,0 +1,12 @@
+<span class="progressbar-container">
+  <span [id]="elementID" [ngStyle]="{'width.%':subjectListener}" [class.bg-danger]="progressBG =='danger'" [class.bg-warning]="progressBG=='warning'" [class.bg-success]="progressBG=='success'" [class.bg-info]="progressBG=='info'" [class.bg-default]="!progressBG || progressBG == 'default'" class="progress">{{ subjectListener }}%</span>
+</span>
+
+<!--
+        <custom-progress-bar
+          [subjectListener]="loading"
+          [elementID]="'progress'"
+          [progressBG]="'info'"
+        ></custom-progress-bar>
+-->
+

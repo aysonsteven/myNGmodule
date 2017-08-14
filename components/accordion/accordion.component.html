@@ -1,0 +1,35 @@
+<div class="wrapper">
+
+
+  <div class="half" [class.halff]="!isChild" [class.fullwidth]="isChild">
+
+    <div class="tab" *ngFor="let obj of object">
+      <input [id]="obj[iteratedLabel]" type="checkbox" name="tabs" (change)="testChange( $event, obj )">
+      <label [class.indented]="isChild" [for]="obj[iteratedLabel]" >{{ obj[iteratedLabel] }}</label>
+      <div class="tab-content">
+        <p>{{ obj[iteratedContent] }}</p>
+        <isi-accordion *ngIf="obj[childIteration]"
+        [isChild]="true"
+        [iteratedLabel]="iteratedLabel"
+        [iteratedContent]="iteratedContent"
+        [object]="obj[childIteration]"
+        ></isi-accordion>
+      </div>
+    </div>
+    <!--<div class="tab">-->
+      <!--<input id="tab-two" type="checkbox" name="tabs">-->
+      <!--<label for="tab-two">Label Two</label>-->
+      <!--<div class="tab-content">-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="tab">-->
+      <!--<input id="tab-three" type="checkbox" name="tabs">-->
+      <!--<label for="tab-three">Label Three</label>-->
+      <!--<div class="tab-content">-->
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur, architecto, explicabo perferendis nostrum, maxime impedit atque odit sunt pariatur illo obcaecati soluta molestias iure facere dolorum adipisci eum? Saepe, itaque.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+
+</div>

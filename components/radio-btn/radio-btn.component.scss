@@ -1,0 +1,55 @@
+@import "../../globalscss/effects";
+@import "../../globalscss/color-palletes";
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  border: 2px double $isitrakTheme;
+  border-radius: 100%;
+  background: #fff;
+}
+[type="radio"]:checked, [type="radio"]:not(:checked){
+  background: #6b7584 !important;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 8px;
+  height: 8px;
+  top: 4px;
+  left: 4px;
+  background: $isitrakTheme;
+  position: absolute;
+  border-radius: 100%;
+  transition: all 0.35s ease;
+  -webkit-transition: all 0.35s linear;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}

@@ -1,0 +1,99 @@
+@import "/color-palletes";
+
+//mixin
+  @mixin flexforscroll($width){
+    flex: 0 $width !important;
+  }
+
+  @mixin borderOutline( $value ){
+    border: $value;
+    outline: $value;
+}
+//end of mixin
+
+table.custom-table{
+  width: 100%;
+  tr{
+    display: flex;
+  }
+  th, td{
+    flex: 1 0;
+  }
+  thead{
+    background-color: $isitrakTheme;
+    tr{
+      height: 45px;
+      border-bottom: $border-bottom;
+      color: #fff;
+      th{
+        text-align: center;
+        padding: $th-padding;
+        color: #fff;
+      }
+    }
+  }
+  tbody{
+    display: block;
+    overflow-y: auto;
+    max-height: 390px;
+    border: 1px solid grey;
+    border-top: none;
+    background-color: #fdfdfd;
+    tr{
+      border-bottom: 1px solid #f2f2f2;
+      td{
+        border-bottom: 1px solid #f2f2f2;
+        text-align: center;
+        padding: 3px 0px 3px 0px;
+        line-height: 30px;
+        word-break: break-all;
+      }
+    }
+  }
+  tbody::-webkit-scrollbar{
+    width: 2px;
+
+  }
+  tbody::-webkit-scrollbar-thumb{
+    background-color: $isitrakTheme;
+  }
+}
+
+h4{
+  color: $isitrakTheme;
+  span{
+    letter-spacing: 2px;
+  }
+}
+
+.field{
+  input{
+    @include borderOutline( none );
+    border-bottom: $inputs-border 2px solid !important;
+  }
+}
+
+button.btn{
+  background-color: $isitrakTheme;
+  border:none;
+  color: #fff;
+  padding: 10px 14px 10px 14px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0px #d2d2d2;
+  outline: none;
+}
+
+.icon-btns{
+  font-size: 14px;
+}
+
+.float-right{
+  float: right;
+}
+
+.padding-right3{
+  padding-right: 3px;
+}
+.padding-left3{
+  padding-left: 3px;
+}

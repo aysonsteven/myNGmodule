@@ -1,0 +1,53 @@
+
+<div class="parent">
+  <div class="custom-dropdown">
+
+    <div class="dividerclass field" (click)="flag= !flag">
+      <label *ngIf="dropdownLabel" [for]="elementID">{{ dropdownLabel }} : </label>
+      <input [id]="elementID" type="text" disabled [value]="value()"><label class="caret" [for]="elementID"></label>
+    </div>
+
+    <div [class.content]="!flag" class="overflow" [class.hide]="flag" style="background-color: #d5dbe5;" [id]="elementID+'container'">
+
+      <!--<div style="border-bottom: 1px solid #6b7584; background-color: #fff;">-->
+        <!--<span><input type="checkbox" [checked]="inputObject.allIsSelected" (change)="clickSelectAll();onChangeCheckBox()"></span>-->
+        <!--<span ><label for="all">Select All</label></span>-->
+      <!--</div>-->
+
+      <div class="unstyled">
+        <label for="all" class="item-multiple ripple" *ngIf="enableSelectAll">
+          <!--<input id="all" class="styled-checkbox" [class.semiSelected]="selectedArray.length >= 1 && selectedArray.length != object.length" [checked]="isChecked()" (change)="clickSelectAll();" type="checkbox" value="value1">-->
+          <!--<label for="all">Select All</label>-->
+          <custom-checkbox
+          [elementID]="'all'"
+          [semiSelected]="selectedArray.length > 0 && selectedArray.length!= object.length"
+          [selected]="selectedArray.length == object.length"
+          (bind)="selectAllToggle( $event )"
+          [label]="' Select All'"
+          >
+          </custom-checkbox>
+        </label>
+
+        <label [for]="box[iteratedLabel]" class="item-multiple ripple" *ngFor="let box of object; let i = index">
+          <!--<input  [id]="box[iteratedLabel]" class="styled-checkbox" type="checkbox" [value]="box" [checked]="box.isSelected" (change)="clickSelectBox(box, i);onChangeCheckBox( box )">-->
+          <!--<label [class.foreign-item]="box[higlightIdentifier]" [for]="box[iteratedLabel]">{{ box[iteratedLabel] }}</label>-->
+          <custom-checkbox
+          [elementID]="box[iteratedLabel]"
+          [selectedVal]="box"
+          [highlightIdentifier]="box[higlightIdentifier]"
+          [selected]="box[selectedFlag]"
+          [label]="box[iteratedLabel]"
+          (bind)="bindItem($event, i)"
+          ></custom-checkbox>
+        </label>
+      </div>
+
+
+      <!--<div *ngFor="let box of object; let i = index">-->
+        <!--<span><input [id]="box.boxSequenceNumber" class="styled-checkbox" type="checkbox" [value]="box" [checked]="box.isSelected" (change)="onChangeCheckBox( box )"></span>-->
+        <!--<span> <label [for]="box.boxSequenceNumber">{{ box.boxSequenceNumber }}</label></span>-->
+      <!--</div>-->
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,91 @@
+.ripple {
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+}
+.ripple:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #000 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform .2s, opacity .4s;
+}
+.ripple:active:after {
+  transform: scale(0, 0);
+  opacity: .2;
+  transition: 0s;
+}
+@keyframes ripple {
+  from {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  to {
+    transform: scale(50);
+    opacity: 0;
+  }
+}
+
+.radio-ripple:checked + label:before {
+  animation: pulse-ripple 0.3s linear forwards;
+}
+
+@keyframes pulse-ripple {
+  0% {
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0);
+  }
+  20% {
+    /*     transform: scale(25, 25); */
+    box-shadow: 0px 0px 0px 3px rgba(0,0,0,0.3);
+  }
+  40%{
+    box-shadow: 0px 0px 0px 5px rgba(0,0,0,0.3);
+  }
+  100% {
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,0);
+  }
+}
+
+
+
+//////pulse FX
+
+
+
+.pulse-fx {
+
+  position: relative;
+  border: none;
+  box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
+  border-radius: 50%;
+  background-color: #e84c3d;
+  background-size:cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  -webkit-animation: pulse-fx-keyframe 1.65s infinite cubic-bezier(1.66, 0, 0, 1);
+  -moz-animation: pulse-fx-keyframe 1.65s infinite cubic-bezier(0.66, 0, 0, 1);
+  -ms-animation: pulse-fx-keyframe 1.65s infinite cubic-bezier(0.66, 0, 0, 1);
+  animation: pulse-fx-keyframe 1.65s infinite cubic-bezier(0.36, 0, 0, 1);
+}
+.pulse-fx:hover
+{
+  -webkit-animation: none;-moz-animation: none;-ms-animation: none;animation: none;
+}
+
+/* @-webkit-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}} */
+/* @-moz-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}}
+@-ms-keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}} */
+/* @keyframes pulse {to {box-shadow: 0 0 0 45px rgba(232, 76, 61, 0);}} */
+@keyframes pulse-fx-keyframe {
+  50% {  }
+  to {box-shadow: 0 0 0 25px rgba(232, 66, 61, 0);}
+}

@@ -1,0 +1,26 @@
+<span class="select-container">
+  <span class="field">
+    <label *ngIf="label && elementID" [for]="elementID">{{ label }}</label>
+    <input type="text" (focus)="flag( itemdrp )" (click)="show()" [class.pointer]="!autoSuggest" #itemdrp  class="dropdown" [id]="elementID" [(ngModel)]="model" (change)="bind.emit()"><label  class="caret" [for]="elementID"></label>
+  </span>
+  <div class="item-content" *ngIf="displayFlag">
+    <button *ngIf="default" class="item" (click)="selectItem( $event, null, -1 )">
+      <span *ngIf="default">{{default}}</span>
+    </button>
+    <button class="item" (click)="selectItem( $event, obj, i )" *ngFor="let obj of object; let i = index">
+
+      <span *ngIf="iteratedLabel"> {{ obj[iteratedLabel] }} </span>
+      <span *ngIf="!iteratedLabel"> {{ obj }} </span>
+    </button>
+  </div>
+</span>
+
+
+<!--
+  <custom-dropdown
+  [elementID]="'test'"
+  [object]="test"
+  [iteratedLabel]="'name'"
+  [label]="'Select Existing User: '"
+  ></custom-dropdown>
+-->

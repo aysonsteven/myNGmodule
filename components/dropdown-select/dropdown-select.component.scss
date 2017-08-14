@@ -1,0 +1,57 @@
+@import "../../globalscss/global";
+
+label.caret:after{
+  content: '';
+  border-top: 5px solid black;
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  position: relative;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+input{
+  padding-left: 3px;
+}
+.item-content{
+  position: absolute;
+  width: 20%;
+  background-color: #efeeee;
+  box-shadow: 3px 4px 4px 2px #b5aeae;
+  max-height: 260px;
+  overflow-x: hidden;
+  overflow-y: overlay;
+}
+
+.item-content:hover::-webkit-scrollbar{
+  display: initial;
+}
+
+.item-content::-webkit-scrollbar{
+  display: none;
+}
+
+.item-content::-webkit-scrollbar{
+  width: 4px;
+  background-color: #ced2d8
+}
+
+.item{
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  text-align: left;
+  outline:none;
+  background-color: hsla(0, 0%, 77%, 0.26);
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+
+//.item-content::-webkit-scrollbar-thumb{
+//  background-color: $isitrakTheme;
+//}

@@ -1,0 +1,36 @@
+<!--<div class="container">-->
+  <input type="radio" [class.radio-ripple]="ripple" [id]="elementID" [name]="radioGroup" [(ngModel)]="model" (click)="clickBind.emit()" [value]="radioValue" (change)="change.emit()" (ngModelChange)="binder.emit( radioValue )">
+  <label *ngIf="radioLabel" [for]="elementID">{{ radioLabel }}</label>
+<!--</div>-->
+<!--
+sample codes
+{{ radiotest }}
+<custom-radiobutton
+[radioLabel]="'radio button'"
+[elementID]="'myID1'"
+[radioGroup]="'test'"
+[radioValue]="'val1'"
+[model]="radiotest"
+(binder)="radiotest = $event"
+>
+</custom-radiobutton>
+<custom-radiobutton
+  [radioLabel]="'radio button'"
+  [elementID]="'myID2'"
+  [radioGroup]="'test'"
+  [radioValue]="'val2'"
+  [model]="radiotest"
+  (binder)="radiotest = $event"
+>
+</custom-radiobutton>
+<custom-radiobutton
+  [radioLabel]="'radio button'"
+  [elementID]="'myID3'"
+  [radioGroup]="'test'"
+  [radioValue]="'val3'"
+  [model]="radiotest"
+  (binder)="radiotest = $event"
+>
+</custom-radiobutton>
+
+-->

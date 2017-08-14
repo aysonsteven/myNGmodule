@@ -1,0 +1,14 @@
+<div class="container" [class.prevent-select]="preventSelect" id="content">
+  <!--<label *ngIf="label" [for]="elementID" >{{ label }}</label>-->
+  <!--<input type="checkbox" class="styled-checkbox" [id]="elementID" [name]="inputName" [(ngModel)]="model">-->
+  <!--<ul class="unstyled">-->
+    <!--<li>-->
+      <!--<input [class.semiSelected]="selectCounter > 0" type="checkbox" class="styled-checkbox" [id]="elementID" [checked]="selected" [name]="inputName" [value]="selectedVal" [(ngModel)]="model" (change)="bind.emit( model )">-->
+      <!--<label *ngIf="label" [for]="elementID" >{{ label }}</label>-->
+    <!--</li>-->
+  <!--</ul>-->
+  <span>
+    <input [class.white-space]="checkWhiteSpaces()" [class.semiSelected]="semiSelected" [id]="elementID" [checked]="selected" [name]="inputName" [value]="selectedVal" [(ngModel)]="model" type="checkbox" (change)="bind.emit( model )" />
+    <label [class.highlighted]="highlightIdentifier" *ngIf="label" [for]="elementID">{{ label }}</label>
+  </span>
+</div>

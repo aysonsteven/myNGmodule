@@ -1,0 +1,32 @@
+//Color palletes
+
+//mixins
+@mixin toast-colors( $background, $border, $font){
+  background-color: $background;
+  border-color: $border;
+  color: $font;
+}
+
+
+.custom-alert-success{
+  @include toast-colors(#dff0d8, #d0e9c6, #3c763d);
+}
+
+.custom-alert-error{
+  @include toast-colors(#f2dede, #ebcccc, #a94442);
+}
+
+// .hide{
+// 	opacity: 0 ;
+//   top: -260px !important;;
+// }
+
+.alrt{
+    position: relative;
+    top: -80px;
+    left: 1595px;
+    padding: 15px 40px 15px 40px;
+    border: 1px solid transparent;
+    transition: all 1.5s;
+    display: inline;
+}
