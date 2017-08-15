@@ -2,7 +2,7 @@
 <div class="parent">
   <div class="custom-dropdown">
 
-    <div class="dividerclass field" (click)="flag= !flag">
+    <div class="dividerclass field" (click)="flag= !flag;">
       <label *ngIf="dropdownLabel" [for]="elementID">{{ dropdownLabel }} : </label>
       <input [id]="elementID" type="text" disabled [value]="value()"><label class="caret" [for]="elementID"></label>
     </div>
@@ -20,8 +20,8 @@
           <!--<label for="all">Select All</label>-->
           <custom-checkbox
           [elementID]="'all'"
-          [semiSelected]="selectedArray.length > 0 && selectedArray.length!= object.length"
-          [selected]="selectedArray.length == object.length"
+          [semiSelected]="selectedArray.length > 0 && selectedArray.length!= object.length && object.length>0"
+          [selected]="selectedArray.length == object.length && selectedArray.length!=0"
           (bind)="selectAllToggle( $event )"
           [label]="' Select All'"
           >

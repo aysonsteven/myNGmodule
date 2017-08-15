@@ -38,10 +38,10 @@ export class MultipleSelect implements OnInit, OnChanges{
   constructor(private _eref: ElementRef, private zone: NgZone) { }
 
   ngOnInit(){
-    console.log( 'passed', this.object);
+    // console.log( 'passed', this.object);
     // this.checkSelected();
     this.eventListener.subscribe( event =>{
-      console.log('changed');
+      // console.log('changed');
       this.reset();
     });
     this.setOptions();
@@ -59,27 +59,35 @@ export class MultipleSelect implements OnInit, OnChanges{
 
   bindItem( event, idx ){
     if( event ) {
+      this.object[idx][this.selectedFlag]=true;
       this.checked.emit( idx );
+      // console.log('item', this.object[idx])
       this.selectedArray.push( this.object[ idx ][ this.iteratedLabel ] );
     }
     else{
+      // console.log('item', this.object[idx])
+      this.object[idx][this.selectedFlag]=false;
       this.unchecked.emit( idx );
       this.selectedArray.splice( this.selectedArray.indexOf( this.object[idx][this.iteratedLabel]), 1 );
     }
   }
 
   selectAllToggle( event ){
+    this.unchecedkAll.emit();
     this.selectedArray = [];
     if( event ) {
-      // console.log('checked all');
-      this.checkedAll.emit();
       for( let x=0; x<=this.object.length - 1;x++){
-        this.selectedArray.push(this.object[x][this.iteratedLabel]);
+        // console.log('obj', this.object[x])
+        this.object[x][this.selectedFlag]=true;
+        this.checked.emit( x );
+        this.selectedArray.push( this.object[ x ][ this.iteratedLabel ] );
+
       }
     }
     else {
-      // console.log('unchecked all');
-      this.unchecedkAll.emit();
+      for( let x=0; x<=this.object.length - 1;x++){
+        this.bindItem(false, x);
+      }
     }
   }
 
@@ -92,6 +100,7 @@ export class MultipleSelect implements OnInit, OnChanges{
 
   ngOnChanges( changes : any ){
     if( changes.resetDropdown ) this.reset();
+    if( changes.object ) this.reset()
   }
 
   // onChangeCheckBox( box ){
@@ -107,11 +116,11 @@ export class MultipleSelect implements OnInit, OnChanges{
   // }
 
   reset(){
+    this.selectedArray = [];
     this.inputObject.allIsSelected = false;
     this.inputObject.selectedBoxes = [];
-    for(let x = 0; x < this.object.length; x++){
+    for(let x = 0; x < this.object.length - 1; x++){
       if( this.object[x] )this.object[x].isSelected = false;
-      this.selectedArray = [];
     }
   }
 
@@ -124,7 +133,7 @@ export class MultipleSelect implements OnInit, OnChanges{
   run(){
     this.zone.run(()=>{
       this.flag = true;
-      console.info('clicked outside');
+      // console.info('clicked outside');
     })
   }
 
@@ -205,13 +214,13 @@ export class MultipleSelect implements OnInit, OnChanges{
   }
 
   isChecked(){
-    console.log( this.selectedLength )
+    // console.log( this.selectedLength )
     // for( let ctr = 0; ctr < this.object.length; ctr++ ){
     if(this.object.length == this.selectedLength) this.inputObject.allIsSelected = true;
     else this.inputObject.allIsSelected = false;
       // else this.inputObject.allIsSelected = false;
     // }
-    console.log('ischecked', this.inputObject.allIsSelected);
+    // console.log('ischecked', this.inputObject.allIsSelected);
     return this.inputObject.allIsSelected;
   }
 }
