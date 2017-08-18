@@ -18,6 +18,8 @@ import { ProgressbarComponent } from "./components/progressbar/progressbar.compo
 import { LoaderComponent } from "./components/loader/loader.component"
 import { QueStepsComponent } from "./components/que-steps/que-steps.component"
 import { SwitchToggle } from "./components/switch-toggle/switch-toggle"
+import { ChartComponent } from "./components/charts/chart.component"
+
 
 import { GlobalScript } from "./api/library"
 
@@ -42,7 +44,8 @@ import { FocusDirective } from "./directives/datepicker.focus.directive";
     ProgressbarComponent,
     LoaderComponent,
     QueStepsComponent,
-    SwitchToggle
+    SwitchToggle,
+    ChartComponent
   ],
   imports :[
     CommonModule,
@@ -65,7 +68,8 @@ import { FocusDirective } from "./directives/datepicker.focus.directive";
     ProgressbarComponent,
     LoaderComponent,
     QueStepsComponent,
-    SwitchToggle
+    SwitchToggle,
+    ChartComponent
   ]
 })
 export class isiNgComponents{}
