@@ -17,8 +17,11 @@ import {
 
 export class SwitchToggle implements OnInit, OnChanges, OnDestroy{
   @Input() model: string;
+  @Input() iteratedStatus: string;
   @Input() label: string;
-  @Output() change: EventEmitter<any> = new EventEmitter();
+  @Input() trueLabel: string;
+  @Input() falseLabel: string;
+  @Output() bind: EventEmitter<any> = new EventEmitter();
   constructor( private elmref: ElementRef){}
 
   ngOnInit(){}
@@ -27,5 +30,8 @@ export class SwitchToggle implements OnInit, OnChanges, OnDestroy{
 
   ngOnDestroy(){}
 
-
+  switchLabel( bool ){
+    if( bool ) return this.trueLabel;
+    return this.falseLabel;
+  }
 }

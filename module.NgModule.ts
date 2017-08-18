@@ -17,6 +17,7 @@ import { DropdownSelectComponent } from "./components/dropdown-select/dropdown-s
 import { ProgressbarComponent } from "./components/progressbar/progressbar.component"
 import { LoaderComponent } from "./components/loader/loader.component"
 import { QueStepsComponent } from "./components/que-steps/que-steps.component"
+import { SwitchToggle } from "./components/switch-toggle/switch-toggle"
 
 import { GlobalScript } from "./api/library"
 
@@ -40,7 +41,8 @@ import { FocusDirective } from "./directives/datepicker.focus.directive";
     DropdownSelectComponent,
     ProgressbarComponent,
     LoaderComponent,
-    QueStepsComponent
+    QueStepsComponent,
+    SwitchToggle
   ],
   imports :[
     CommonModule,
@@ -62,7 +64,8 @@ import { FocusDirective } from "./directives/datepicker.focus.directive";
     AutoSuggestComponent,
     ProgressbarComponent,
     LoaderComponent,
-    QueStepsComponent
+    QueStepsComponent,
+    SwitchToggle
   ]
 })
 export class isiNgComponents{}

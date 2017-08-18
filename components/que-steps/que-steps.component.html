@@ -1,27 +1,14 @@
-<div class="profileSteps">
-  <div class="profileStep profileStepPassive profileStepOne">
-    <div class="connect"></div>
-    <div class="icon">5</div>
-    <div class="info">Step Five</div>
-  </div>
-  <div class="profileStep profileStepPassive profileStepOne">
-    <div class="connect"></div>
-    <div class="icon">4</div>
-    <div class="info">Step Four</div>
-  </div>
-  <div class="profileStep profileStepPassive profileStepOne">
-    <div class="connect"></div>
-    <div class="icon">3</div>
-    <div class="info">Step Three</div>
-  </div>
-  <div class="profileStep profileStepActive profileStepOne">
-    <div class="connect"></div>
-    <div class="icon">2</div>
-    <div class="info">Step Two</div>
-  </div>
-  <div class="profileStep profileStepActive profileStepOne">
-    <div class="connect"></div>
-    <div class="icon">1</div>
-    <div class="info">Step One</div>
-  </div>
+<ol class="progress-track">
+  <li class="progress-todo"  [class.progress-done]="stepsModel>=idx+1" [class.progress-current]="stepsModel==idx+1" *ngFor="let obj of object; let idx = index">
+    <div class="icon-wrap" (click)="clicked( idx + 1 )" [class.clickable]="isClickable">
+      {{ idx + 1 }}
+    </div>
+    <span class="progress-text">{{ obj.label }}</span>
+  </li>
+</ol>
+<ng-content>
+</ng-content>
+<div class="steps-controls">
+  <button class="prev" (click)="prev()">Previous</button>
+  <button class="next" (click)="next()">Next</button>
 </div>

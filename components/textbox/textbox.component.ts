@@ -1,10 +1,17 @@
-import { Component, Input, OnInit, Output, EventEmitter } from "@angular/core"
+import {Component, Input, OnInit, Output, EventEmitter, ViewChild, Renderer, ElementRef} from "@angular/core"
 @Component({
   selector: 'custom-textarea',
   templateUrl: './textbox.component.html',
   styleUrls: ['./textbox.component.scss']
 })
 export class CustomTextbox implements OnInit{
+  @ViewChild('inputElement') txt: ElementRef;
+  @ViewChild('inputLabel') labelElement: ElementRef;
+  @ViewChild('inputMessageElement') msg: ElementRef;
+  @Input() isRequired: boolean = false;
+  @Input() textFieldWidth: number;
+  @Input() labelWidth: number;
+  @Input() widthIdentifier: string = "";
   @Input() autofocus: boolean = false;
   @Input() elementID: string = "";
   @Input() label: string = "";
@@ -12,24 +19,28 @@ export class CustomTextbox implements OnInit{
   @Input() autoFocus:boolean = false;
   @Input() textBoxType: string = "text";
   @Input() model;
+  @Input() messageColor: string;
+  @Input() inputMessage: string = "";
   @Input() disabled: boolean = false;
   @Output() bind: any =  new EventEmitter();
   @Output() keyup: any = new EventEmitter();
-  constructor(){}
+  constructor( private renderer: Renderer ){
+
+  }
 
   ngOnInit(){
     console.info( 'id', this.elementID, 'flagFocus', this.autoFocus)
-    if( this.elementID && this.autoFocus ) this.focusOnLoad();
-    // if( this.textBoxType == 'number' ) parseInt( this.model );
+    if( this.elementID && this.autoFocus ) this.txt.nativeElement.focus();
+    if( this.labelElement )  this.applyLabelWidth()
+    if( this.textFieldWidth ) this.renderer.setElementStyle( this.txt.nativeElement,'width', this.textFieldWidth + this.widthIdentifier);
+    if( this.messageColor ) this.renderer.setElementStyle( this.msg.nativeElement, 'color', this.messageColor );
   }
-
+  applyLabelWidth(){
+    this.renderer.setElementStyle( this.labelElement.nativeElement, 'vertical-align', 'sub');
+    this.renderer.setElementStyle( this.labelElement.nativeElement, 'display', 'inline-block');
+    this.renderer.setElementStyle( this.labelElement.nativeElement, 'width', this.labelWidth+'px');
+  }
   checkType( event ){
     console.log( typeof( event ))
-  }
-
-  focusOnLoad(){
-    setTimeout( ()=>{
-      document.getElementById(this.elementID).focus()
-    },0)
   }
 }

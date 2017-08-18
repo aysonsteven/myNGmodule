@@ -13,8 +13,11 @@ export class LoaderComponent implements OnInit{
   constructor(){}
 
   ngOnInit(){
+
     this.listener.subscribe( x=>{
       this.flag = x;
     })
+
   }
+
 }

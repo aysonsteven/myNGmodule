@@ -1,8 +1,9 @@
 <div class="field">
-  <label *ngIf="label && labelPosition == 'left' || labelPosition =='top' " [class.blockLabel]="labelPosition == 'top'" [for]="elementID">{{ label }}</label>
+  <label #inputLabel [class.blockLabel]="labelPosition == 'top'" [for]="elementID"><span *ngIf="isRequired" class="required">*</span>{{ label }}</label>
 
-  <input [type]="textBoxType" [id]="elementID" [(ngModel)]="model" (ngModelChange)="bind.emit( $event ); checkType( $event )" [disabled]="disabled" (keyup)="keyup.emit()">
-  <label *ngIf="label && labelPosition == 'right'" [for]="elementID">{{ label }}</label>
+  <input #inputElement [type]="textBoxType" [id]="elementID" [(ngModel)]="model" (ngModelChange)="bind.emit( $event ); checkType( $event )" [disabled]="disabled" (keyup)="keyup.emit()">
+  <span #inputMessageElement >{{inputMessage || '' }}</span>
+  <label  *ngIf="label && labelPosition == 'right'" [for]="elementID">{{ label }}</label>
 </div>
 
 

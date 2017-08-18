@@ -1,0 +1,13 @@
+<div class="field"><span class="labl">{{ label }}:</span>
+  <label class="switch">
+    <input type="checkbox" [(ngModel)]="model" (change)="bind.emit()" >
+    <span class="slider round"></span>
+  </label>
+  <span class="lbl">{{ switchLabel( model ) }}</span>
+</div>
+<!--<ul class="tg-list">-->
+  <!--<li class="tg-list-item">-->
+    <!--<span>{{ label }}:</span><input (change)="bind.emit()" class="tgl tgl-flip" id="cb5" type="checkbox" [(ngModel)]="model"/>-->
+    <!--<label class="tgl-btn" [attr.data-tg-off]="falseLabel" [attr.data-tg-on]="trueLabel" for="cb5"></label>-->
+  <!--</li>-->
+<!--</ul>-->
