@@ -8,7 +8,7 @@
     <!--</li>-->
   <!--</ul>-->
   <span>
-    <input [class.white-space]="checkWhiteSpaces()" [class.semiSelected]="semiSelected" [id]="elementID" [checked]="selected" [name]="inputName" [value]="selectedVal" [(ngModel)]="model" type="checkbox" (change)="bind.emit( model )" />
-    <label [class.highlighted]="highlightIdentifier" *ngIf="label" [for]="elementID">{{ label }}</label>
+    <input [class.white-space]="checkWhiteSpaces()"  [disabled]="disabled" [class.semiSelected]="semiSelected" [id]="elementID" [checked]="selected" [name]="inputName" [value]="selectedVal" [(ngModel)]="model" type="checkbox" (change)="bind.emit( model )" />
+    <label [class.highlighted]="highlightIdentifier" [class.notallowed]="disabled" *ngIf="label" [for]="elementID">{{ label }}</label>
   </span>
 </div>

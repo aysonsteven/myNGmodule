@@ -10,8 +10,23 @@ label.caret:after{
   right: 15px;
   cursor: pointer;
 }
+.field{
+  input{
+    border-bottom:none !important;
+    text-transform: capitalize;
+  }
+}
+.material-icons{
+  user-select: none;
+}
+.select-container{
+  border-bottom: #a5adba 2px solid !important;
+}
 input{
   padding-left: 3px;
+}
+.selected{
+  background-color: #d2d2d2!important;
 }
 .item-content{
   position: absolute;
@@ -21,6 +36,7 @@ input{
   max-height: 260px;
   overflow-x: hidden;
   overflow-y: overlay;
+  display: none;
 }
 
 .item-content:hover::-webkit-scrollbar{
@@ -38,13 +54,19 @@ input{
 
 .item{
   padding: 10px 20px;
-  border: 1px solid #fff;
+  border: 1px solid #d2d2d2;
   cursor: pointer;
   display: block;
   width: 100%;
   text-align: left;
   outline:none;
-  background-color: hsla(0, 0%, 77%, 0.26);
+  //background-color: hsla(0, 0%, 77%, 0.26);
+  background-color: #fff;
+}
+
+.show{
+  display: block;
+  z-index: 9999;
 }
 
 .pointer{

@@ -14,6 +14,7 @@ import { Subject } from "rxjs/Subject"
 export class MultipleSelect implements OnInit, OnChanges{
   selectedArray = [];
   flag: boolean = true;
+  @Input() disabledSelectAll: boolean = false;
   @Input() selectedFlag: string;
   @Input() selectedLength:number;
   @Input() allIsSelected:boolean = false;

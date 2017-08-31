@@ -9,6 +9,7 @@ import { Component, Input, Output, EventEmitter, OnInit, OnChanges, OnDestroy } 
 export class CheckboxComponent implements OnInit, OnChanges, OnDestroy{
   @Input() semiSelected: boolean = false;
   @Input() model: any;
+  @Input() disabled: boolean = false;
   @Input() inputName: string = "";
   @Input() elementID: string = "";
   @Input() label: string = "";

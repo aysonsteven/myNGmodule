@@ -20,6 +20,7 @@
           <!--<label for="all">Select All</label>-->
           <custom-checkbox
           [elementID]="'all'"
+          [disabled]="disabledSelectAll"
           [semiSelected]="selectedArray.length > 0 && selectedArray.length!= object.length && object.length>0"
           [selected]="selectedArray.length == object.length && selectedArray.length!=0"
           (bind)="selectAllToggle( $event )"

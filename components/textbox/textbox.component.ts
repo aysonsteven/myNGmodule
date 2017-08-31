@@ -22,6 +22,8 @@ export class CustomTextbox implements OnInit{
   @Input() messageColor: string;
   @Input() inputMessage: string = "";
   @Input() disabled: boolean = false;
+  @Input() placeholder: string = "";
+  @Input() fontSize: string;
   @Output() bind: any =  new EventEmitter();
   @Output() keyup: any = new EventEmitter();
   constructor( private renderer: Renderer ){
@@ -34,6 +36,7 @@ export class CustomTextbox implements OnInit{
     if( this.labelElement )  this.applyLabelWidth()
     if( this.textFieldWidth ) this.renderer.setElementStyle( this.txt.nativeElement,'width', this.textFieldWidth + this.widthIdentifier);
     if( this.messageColor ) this.renderer.setElementStyle( this.msg.nativeElement, 'color', this.messageColor );
+    if( this.fontSize ) this.renderer.setElementStyle( this.txt.nativeElement , 'font-size', this.fontSize );
   }
   applyLabelWidth(){
     this.renderer.setElementStyle( this.labelElement.nativeElement, 'vertical-align', 'sub');

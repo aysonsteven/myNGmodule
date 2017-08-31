@@ -671,7 +671,6 @@ export class MyDatePicker implements OnChanges, ControlValueAccessor, OnInit {
             this.onCellClicked(cell);
         }
     }
-
     clearDate(): void {
         // Clears the date and notifies parent using callbacks and value accessor
         let date: IMyDate = {year: 0, month: 0, day: 0};
