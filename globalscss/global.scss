@@ -17,7 +17,8 @@ table.custom-table{
     display: flex;
   }
   th, td{
-    flex: 1 0;
+    flex: 1 auto;
+    width: 1px;
   }
   thead{
     background-color: $isitrakTheme;
@@ -111,4 +112,9 @@ div.controls {
     cursor: pointer;
     outline: none;
   }
+}
+
+button[disabled]{
+  cursor: not-allowed !important;
+  opacity: 0.7;
 }

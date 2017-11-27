@@ -1,4 +1,7 @@
-import {Component, Input, OnInit, Output, EventEmitter, ViewChild, Renderer, ElementRef} from "@angular/core"
+import {
+  Component, Input, OnInit, Output, EventEmitter, ViewChild, Renderer, ElementRef,
+  AfterViewInit
+} from "@angular/core"
 @Component({
   selector: 'custom-textarea',
   templateUrl: './textbox.component.html',
@@ -29,11 +32,10 @@ export class CustomTextbox implements OnInit{
   constructor( private renderer: Renderer ){
 
   }
-
   ngOnInit(){
-    console.info( 'id', this.elementID, 'flagFocus', this.autoFocus)
+    console.info( 'id', this.elementID, 'flagFocus', this.autoFocus);
     if( this.elementID && this.autoFocus ) this.txt.nativeElement.focus();
-    if( this.labelElement )  this.applyLabelWidth()
+    if( this.labelElement )  this.applyLabelWidth();
     if( this.textFieldWidth ) this.renderer.setElementStyle( this.txt.nativeElement,'width', this.textFieldWidth + this.widthIdentifier);
     if( this.messageColor ) this.renderer.setElementStyle( this.msg.nativeElement, 'color', this.messageColor );
     if( this.fontSize ) this.renderer.setElementStyle( this.txt.nativeElement , 'font-size', this.fontSize );

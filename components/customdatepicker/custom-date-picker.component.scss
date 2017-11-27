@@ -19,6 +19,10 @@ $inputs-border: #a5adba;
     margin: 0;
 }
 
+input{
+  top: 3px;
+}
+
 .mydp,
 .mydp .selectiongroup,
 .mydp .selection,
@@ -160,7 +164,7 @@ div.mydp{
 .mydp .selection {
     width: 100%;
     outline: none;
-    background-color: #FFF;
+    background-color: transparent;
     display: table-cell;
     position: absolute;
     overflow: hidden;

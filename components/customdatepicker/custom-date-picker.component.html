@@ -8,7 +8,7 @@
         <button type="button" [attr.aria-label]="opts.ariaLabelDecreaseDate" class="btndecrease" *ngIf="opts.showDecreaseDateBtn" (click)="onDecreaseBtnClicked()" [ngClass]="{'btndecreaseenabled': !opts.componentDisabled, 'btndecreasedisabled': opts.componentDisabled, 'btnleftborderradius': !opts.showInputField}" [disabled]="opts.componentDisabled">
           <span class="mydpicon icon-mydpleft"></span>
         </button>
-        <button type="button" [attr.aria-label]="opts.ariaLabelIncreaseDate" class="btnincrease" *ngIf="opts.showIncreaseDateBtn" (click)="onIncreaseBtnClicked()" [ngClass]="{'btnincreaseenabled': !opts.componentDisabled, 'btnincreasedisabled': opts.componentDisabled, 'btnleftborderradius': !opts.showDecreaseDateBtn&&!opts.showInputField}" [disabled]="opts.componentDisabled || range()">
+        <button type="button" [attr.aria-label]="opts.ariaLabelIncreaseDate" class="btnincrease" *ngIf="opts.showIncreaseDateBtn" (click)="onIncreaseBtnClicked()" [ngClass]="{'btnincreaseenabled': !opts.componentDisabled, 'btnincreasedisabled': opts.componentDisabled, 'btnleftborderradius': !opts.showDecreaseDateBtn&&!opts.showInputField}" [disabled]="opts.componentDisabled">
           <span class="mydpicon icon-mydpright"></span>
         </button>
         <button type="button" [attr.aria-label]="opts.ariaLabelClearDate" class="btnclear" *ngIf="selectionDayTxt.length>0&&opts.showClearDateBtn" (click)="removeBtnClicked()" [ngClass]="{'btnclearenabled': !opts.componentDisabled, 'btncleardisabled': opts.componentDisabled, 'btnleftborderradius': !opts.showIncreaseDateBtn&&!opts.showDecreaseDateBtn&&!opts.showInputField}" [disabled]="opts.componentDisabled">

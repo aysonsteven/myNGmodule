@@ -24,6 +24,7 @@ label.caret:after{
 }
 input{
   padding-left: 3px;
+  width: 80%;
 }
 .selected{
   background-color: #d2d2d2!important;
@@ -72,7 +73,16 @@ input{
 .pointer{
   cursor: pointer;
 }
-
+div.select-container{
+  display: inline-block;
+  height: 19px;
+}
+label.lbl{
+  vertical-align: bottom;
+}
+input.dropdown.pointer{
+  background-color: transparent !important;
+}
 
 //.item-content::-webkit-scrollbar-thumb{
 //  background-color: $isitrakTheme;

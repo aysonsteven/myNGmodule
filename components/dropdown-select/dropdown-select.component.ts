@@ -24,6 +24,7 @@ export class DropdownSelectComponent implements OnInit, OnDestroy, OnChanges{
   @Input() selected: Subject<any> = new Subject();
   @ViewChild( 'input' ) input: ElementRef;
   @ViewChild( 'content' ) content: ElementRef;
+  @ViewChild( 'select' ) select: ElementRef;
   @Input() elementID: string = "";
   @Input() object: any;
   @Input() iteratedLabel: string;
@@ -31,25 +32,32 @@ export class DropdownSelectComponent implements OnInit, OnDestroy, OnChanges{
   @Input() autoSuggest: boolean = false;
   @Input() label: string = "";
   @Input() default: string;
+  @Input() defailtValue: any;
   @Input() optionValue: any;
   @Input() inputWidth: string = "";
   @Input() contentWidth: string = "";
   @Input() widthIdentifier: string = "";
   @Input() placeholder: string = "";
   @Input() fontSize: string;
+  @Input() componentWidth: string = "";
+  @Output() bindObject: EventEmitter<any> = new EventEmitter();
   @Output() bind: EventEmitter<any> = new EventEmitter();
 
   displayFlag: boolean = false;
   constructor( private zone: NgZone, private _eref: ElementRef , private renderer: Renderer){}
 
   ngOnInit(){
+    if( this.componentWidth ) this.renderer.setElementStyle( this.select.nativeElement, 'width', this.componentWidth );
     if( this.inputWidth ) this.renderer.setElementStyle( this.input.nativeElement , 'width', this.inputWidth + this.widthIdentifier );
     if( this.contentWidth )  this.renderer.setElementStyle( this.content.nativeElement, 'width', this.contentWidth );
     if( this.fontSize ) this.renderer.setElementStyle( this.input.nativeElement , 'font-size', this.fontSize );
     this.selected.subscribe( res =>{
       this.selectedItem = res;
+      console.log( 'res', res );
     });
-
+    setTimeout(()=>{
+      console.log('object', this.object );
+    } ,0)
   }
 
   ngOnDestroy(){
@@ -73,11 +81,13 @@ export class DropdownSelectComponent implements OnInit, OnDestroy, OnChanges{
   }
 
   selectItem( event, obj, index ){
-    console.log('model', obj[this.iteratedLabel]);
+    if( obj instanceof Object )this.bindObject.emit( obj[this.optionValue] );
+    else this.bindObject.emit( 0 );
     this.displayFlag = !this.displayFlag;
     if( this.iteratedLabel && obj )this.model = obj[this.iteratedLabel];
     else if( ! this.iteratedLabel && obj ) this.model = obj;
     if( obj == null ) this.model = null;
+
     this.bind.emit( index );
     // console.log(this.renderer.setElementClass);
   }

@@ -48,9 +48,6 @@ export class MultipleSelect implements OnInit, OnChanges{
     this.setOptions();
   }
 
-
-
-
   setOptions(){
     setTimeout( ( ) =>{
       if( this.inputWidth ) document.getElementById( this.elementID ).style.width = this.inputWidth + "px";

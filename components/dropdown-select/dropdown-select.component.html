@@ -1,6 +1,7 @@
-<div class="select-container">
+<label *ngIf="label && elementID" [for]="elementID" class="lbl">{{ label }}</label>
+<div class="select-container" #select>
   <div class="field" (click)="show()" [class.pointer]="!autoSuggest">
-    <label *ngIf="label && elementID" [for]="elementID">{{ label }}</label>
+
     <input #input type="text" (focus)="flag( itemdrp )" [placeholder]="placeholder" [class.pointer]="!autoSuggest" #itemdrp  class="dropdown" [id]="elementID" [(ngModel)]="model" (change)="bind.emit()">
     <span style="float: right;" class="material-icons pointer"> keyboard_arrow_down </span>
   </div>
